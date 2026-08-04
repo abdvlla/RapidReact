@@ -1,0 +1,110 @@
+{
+  "React Classnames Helper": {
+    "prefix": "rr.classnames",
+    "body": [
+      "export const cn = (...classes: (string | boolean | undefined)[]) =>",
+      "\tclasses.filter(Boolean).join(\" \");",
+      "",
+    ],
+    "description": "Generate a conditional classnames helper function",
+  },
+  "Debounce Function": {
+    "prefix": "rr.debounce",
+    "body": [
+      "export const debounce = <T extends (...args: any[]) => void>(fn: T, delay = ${1:500}) => {",
+      "\tlet timer: ReturnType<typeof setTimeout>;",
+      "",
+      "\treturn (...args: Parameters<T>) => {",
+      "\t\tclearTimeout(timer);",
+      "\t\ttimer = setTimeout(() => {",
+      "\t\t\tfn(...args);",
+      "\t\t}, delay);",
+      "\t};",
+      "};",
+    ],
+    "description": "Generate a debounce utility function",
+  },
+  "Copy to Clipboard": {
+    "prefix": "rr.clipboard",
+    "body": [
+      "export const copyToClipboard = async (text: string) => {",
+      "\tawait navigator.clipboard.writeText(text);",
+      "};",
+    ],
+    "description": "Generate a copy-to-clipboard utility",
+  },
+  "Date Formatter": {
+    "prefix": "rr.dateformat",
+    "body": [
+      "export const formatDate = (date: string | Date) =>",
+      "\tnew Intl.DateTimeFormat(\"en-US\", {",
+      "\t\tdateStyle: \"${1:medium}\",",
+      "\t}).format(new Date(date));",
+    ],
+    "description": "Generate a date formatting utility using Intl.DateTimeFormat",
+  },
+  "Random ID Generator": {
+    "prefix": "rr.randomid",
+    "body": [
+      "export const generateId = () =>",
+      "\tMath.random().toString(36).substring(2, 9);",
+    ],
+    "description": "Generate a quick non-cryptographic random ID utility",
+  },
+  "LocalStorage Wrapper": {
+    "prefix": "rr.storage",
+    "body": [
+      "export const storage = {",
+      "\tget<T = unknown>(key: string): T | null {",
+      "\t\treturn JSON.parse(localStorage.getItem(key) ?? \"null\");",
+      "\t},",
+      "\tset(key: string, value: unknown) {",
+      "\t\tlocalStorage.setItem(key, JSON.stringify(value));",
+      "\t},",
+      "\tremove(key: string) {",
+      "\t\tlocalStorage.removeItem(key);",
+      "\t},",
+      "};",
+    ],
+    "description": "Generate a typed localStorage get/set/remove wrapper",
+  },
+  "API Error Message Extractor": {
+    "prefix": "rr.errormessage",
+    "body": [
+      "export const getErrorMessage = (error: any): string =>",
+      "\terror?.response?.data?.message ||",
+      "\terror?.message ||",
+      "\t\"${1:Something went wrong}\";",
+    ],
+    "description": "Generate a utility to extract a readable message from inconsistent error shapes",
+  },
+  "Number Formatter": {
+    "prefix": "rr.numberformat",
+    "body": [
+      "export const formatNumber = (number: number) =>",
+      "\tnew Intl.NumberFormat().format(number);",
+    ],
+    "description": "Generate a number formatting utility using Intl.NumberFormat",
+  },
+  "Sleep Utility": {
+    "prefix": "rr.sleep",
+    "body": [
+      "export const sleep = (ms: number) =>",
+      "\tnew Promise((resolve) => setTimeout(resolve, ms));",
+    ],
+    "description": "Generate a promise-based delay utility (for testing loading states)",
+  },
+  "Safe JSON Parser": {
+    "prefix": "rr.safeparse",
+    "body": [
+      "export const safeParse = <T = unknown>(value: string): T | null => {",
+      "\ttry {",
+      "\t\treturn JSON.parse(value);",
+      "\t} catch {",
+      "\t\treturn null;",
+      "\t}",
+      "};",
+    ],
+    "description": "Generate a JSON parser that returns null instead of throwing",
+  },
+}

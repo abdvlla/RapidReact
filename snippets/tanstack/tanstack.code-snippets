@@ -1,0 +1,43 @@
+{
+  "TanStack QueryClient Setup": {
+    "prefix": "rr.tq.client",
+    "body": [
+      "import { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";",
+      "",
+      "const queryClient = new QueryClient();",
+      "",
+      "function ${1:App}() {",
+      "\treturn (",
+      "\t\t<QueryClientProvider client={queryClient}>",
+      "\t\t\t$2",
+      "\t\t</QueryClientProvider>",
+      "\t);",
+      "}",
+    ],
+    "description": "Generate a TanStack Query client setup with QueryClientProvider",
+  },
+  "TanStack useQuery": {
+    "prefix": "rr.tq.query",
+    "body": [
+      "const { data: ${1:data}, isPending, error } = useQuery({",
+      "\tqueryKey: [\"${2:queryKey}\"],",
+      "\tqueryFn: ${3:fetchFn},",
+      "});",
+    ],
+    "description": "Generate a TanStack Query useQuery hook (v5 object syntax)",
+  },
+  "TanStack useMutation": {
+    "prefix": "rr.tq.mutation",
+    "body": [
+      "const queryClient = useQueryClient();",
+      "",
+      "const ${1:mutation} = useMutation({",
+      "\tmutationFn: ${2:mutationFn},",
+      "\tonSuccess: () => {",
+      "\t\tqueryClient.invalidateQueries({ queryKey: [\"${3:queryKey}\"] });",
+      "\t},",
+      "});",
+    ],
+    "description": "Generate a TanStack Query useMutation hook with cache invalidation on success",
+  },
+}
