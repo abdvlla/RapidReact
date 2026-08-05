@@ -3,7 +3,7 @@
   "displayName": "RapidReact",
   "publisher": "abdvlla",
   "description": "A VS Code extension that adds practical React and TypeScript snippets for components, hooks, forms, utilities, Axios, and TanStack Query.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "readme": "MARKETPLACE.md",
   "icon": "docs/icon.png",
   "engines": {
