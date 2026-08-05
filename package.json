@@ -5,6 +5,7 @@
   "description": "A VS Code extension that adds practical React and TypeScript snippets for components, hooks, forms, utilities, Axios, and TanStack Query.",
   "version": "0.0.2",
   "readme": "MARKETPLACE.md",
+  "icon": "docs/icon.png",
   "engines": {
     "vscode": "^1.125.0"
   },
